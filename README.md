@@ -1,3 +1,4 @@
 ## Movies Info App
 
-### Initial Commit
+### Colour palette
+Used mycolour.space to create a pallet
