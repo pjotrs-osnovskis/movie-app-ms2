@@ -36,7 +36,7 @@ header button:focus{
 }
 
 .search-btn:active {
- background-color: #F87895;
+ background-color: #FF8F80;
 }
 
 
@@ -51,3 +51,31 @@ header button:focus{
 
 /* Movies Box styling */
 
+.movie {
+  margin: 2rem;
+  width: 15rem;
+  border-radius: 5px;
+  background-color: #FF8F80;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.movie img {
+  max-width: 100%;
+}
+
+.movie-info {
+  display: flex;
+  justify-content: space-between;
+  color: #eee;
+  padding: 0.5rem;
+}
+
+.movie-info h3 {
+  margin: 0;
+}
+
+.movie-info span {
+  background-color: #D16BA5;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
