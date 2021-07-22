@@ -9,11 +9,23 @@ async function movies() {
   const respData = await resp.json();
 
   respData.results.forEach((movie) => {
-    const img = document.createElement("img");
-    img.src = IMGPath + movie.poster_path
+    const {poster_path, title, vote_average} = movie;
 
-    document.body.appendChild(img);
+    const movieBox = document.createElement("div");
+    movieBox.classList.add("movie");
+
+    movieBox.innerHTML = `
+     <img src="${IMGPath + poster_path}" alt="${title}" />
+     <div class="movie-info">
+      <h3>${title}</h3>
+      <span>${vote_average}</span>
+    </div>
+    `
+
+    document.body.appendChild(movieBox);
   });
+
+
 
   return respData;
 }
