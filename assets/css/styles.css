@@ -39,7 +39,6 @@ header button:focus{
  background-color: #FF8F80;
 }
 
-
 .search-btn {
   font-size: 1.2rem;
   padding: 0 1rem;
@@ -49,10 +48,18 @@ header button:focus{
   background-color: #FF8F80;
 }
 
+/* Main section styling */
+
+#mainSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* Movies Box styling */
 
 .movie {
-  margin: 2rem;
+  margin: 0.7rem;
   width: 15rem;
   border-radius: 5px;
   background-color: #FF8F80;
@@ -68,6 +75,7 @@ header button:focus{
   justify-content: space-between;
   color: #eee;
   padding: 0.5rem;
+  align-items: center;
 }
 
 .movie-info h3 {

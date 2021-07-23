@@ -4,15 +4,17 @@ const APIURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.d
 const IMGPath = "https://image.tmdb.org/t/p/w1280";
 const SearchAPI = "https://api.themoviedb.org/3/search/movie?&api_key=" + APIKey +"&query=";
 
+const mainSection = document.getElementById("mainSection"); // selectiong DOM element to work with
+
 async function movies() {
   const resp = await fetch(APIURL);
   const respData = await resp.json();
 
   respData.results.forEach((movie) => {
-    const {poster_path, title, vote_average} = movie;
+    const {poster_path, title, vote_average} = movie; // Pulling necessary names from API
 
-    const movieBox = document.createElement("div");
-    movieBox.classList.add("movie");
+    const movieBox = document.createElement("div"); //creating a div for individual movie elements
+    movieBox.classList.add("movie"); // creating a class for it
 
     movieBox.innerHTML = `
      <img src="${IMGPath + poster_path}" alt="${title}" />
@@ -20,9 +22,9 @@ async function movies() {
       <h3>${title}</h3>
       <span>${vote_average}</span>
     </div>
-    `
+    `; // creating markup for every movie element and pulling information from API
 
-    document.body.appendChild(movieBox);
+    mainSection.appendChild(movieBox); // sending back
   });
 
 
@@ -30,4 +32,4 @@ async function movies() {
   return respData;
 }
 
-movies();
+movies(); // calling funcion to work
