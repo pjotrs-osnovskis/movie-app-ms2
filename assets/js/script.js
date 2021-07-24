@@ -4,15 +4,24 @@ const APIURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.d
 const IMGPath = "https://image.tmdb.org/t/p/w1280";
 const SearchAPI = "https://api.themoviedb.org/3/search/movie?&api_key=" + APIKey +"&query=";
 
-const mainSection = document.getElementById("mainSection"); // selectiong DOM element to work with
+const mainSection = document.getElementById("main-section"); // selecting DOM element to work with
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-field");
 
-  
 
-async function movies() {
-  const resp = await fetch(APIURL);
+movies(APIURL); // calling popular movies funcion to work 
+
+async function movies(url) {
+  const resp = await fetch(url);
   const respData = await resp.json();
 
-  respData.results.forEach((movie) => {
+  showMovies(respData.results);
+}
+
+function showMovies(movies) {
+  mainSection.innerHTML =""; // clearing page to show new reults
+
+  movies.forEach((movie) => {
     const {poster_path, title, vote_average} = movie; // Pulling necessary names from API
 
     const movieBox = document.createElement("div"); //creating a div for individual movie elements
@@ -28,11 +37,11 @@ async function movies() {
 
     mainSection.appendChild(movieBox); // sending back to HTML file
   });
-  return respData;
 }
 
-//checking how high is the movie rating and giving apropriate class name.
-function classByRating(vote) { 
+
+
+function classByRating(vote) { //checking how high is the movie rating and giving apropriate class name.
   if(vote >= 8) {
     return "green";
   } else if(vote >= 5) {
@@ -43,6 +52,14 @@ function classByRating(vote) {
 }
 
 
+searchForm.addEventListener("submit", (i) => {
+  i.preventDefault();
 
-movies(); // calling funcion to work
+  const searchTerm = searchInput.value;
+
+  if(searchTerm) {
+    movies(SearchAPI + searchTerm)
+    searchInput.value = "";
+  }
+})
 
