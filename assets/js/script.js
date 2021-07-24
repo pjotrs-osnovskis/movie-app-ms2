@@ -6,6 +6,8 @@ const SearchAPI = "https://api.themoviedb.org/3/search/movie?&api_key=" + APIKey
 
 const mainSection = document.getElementById("mainSection"); // selectiong DOM element to work with
 
+  
+
 async function movies() {
   const resp = await fetch(APIURL);
   const respData = await resp.json();
@@ -17,19 +19,30 @@ async function movies() {
     movieBox.classList.add("movie"); // creating a class for it
 
     movieBox.innerHTML = `
-     <img src="${IMGPath + poster_path}" alt="${title}" />
-     <div class="movie-info">
-      <h3>${title}</h3>
-      <span>${vote_average}</span>
-    </div>
+      <div class="movie-image"><img src="${IMGPath + poster_path}" alt="${title}" /></div>
+      <div class="movie-info">
+        <h3>${title}</h3>
+        <span class="${classByRating(vote_average)}">${vote_average}</span>
+      </div>
     `; // creating markup for every movie element and pulling information from API
 
-    mainSection.appendChild(movieBox); // sending back
+    mainSection.appendChild(movieBox); // sending back to HTML file
   });
-
-
-
   return respData;
 }
 
+//checking how high is the movie rating and giving apropriate class name.
+function classByRating(vote) { 
+  if(vote >= 8) {
+    return "green";
+  } else if(vote >= 5) {
+    return "amber"
+  } else {
+    return "red";
+  }
+}
+
+
+
 movies(); // calling funcion to work
+

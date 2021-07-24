@@ -66,24 +66,45 @@ header button:focus{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+
+/* Movie image */
 .movie img {
   max-width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius:5px
 }
 
+/* Movie Basic info */
 .movie-info {
   display: flex;
   justify-content: space-between;
   color: #eee;
   padding: 0.5rem;
   align-items: center;
+  max-height: 100%;
 }
 
 .movie-info h3 {
   margin: 0;
+  font-size: 1.21rem;
 }
 
 .movie-info span {
   background-color: #D16BA5;
   padding: 0.5rem;
   border-radius: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.movie-info span.green {
+  color: rgb(0, 214, 54);
+}
+.movie-info span.amber {
+  color: rgb(255, 163, 87);
+}
+.movie-info span.red {
+  color: rgb(223, 45, 0);
 }
