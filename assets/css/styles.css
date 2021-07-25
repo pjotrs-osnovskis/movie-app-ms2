@@ -39,9 +39,9 @@ header button:focus{
  background-color: #fc7c6b;
 }
 
-.general-btn {
+#search-btn {
   font-size: 1.2rem;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
   border: none;
   border-radius: 10px;
   color: #eee;
@@ -50,7 +50,7 @@ header button:focus{
 
 /* Main section styling */
 
-#main-section {
+#mainSection {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -113,6 +113,6 @@ header button:focus{
   padding: 2rem 0;
 }
 
-#contact-section h3, h5, input, button {
+.form-control {
   margin: 1rem 0;
 }

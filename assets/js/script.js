@@ -4,7 +4,7 @@ const APIURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.d
 const IMGPath = "https://image.tmdb.org/t/p/w1280";
 const SearchAPI = "https://api.themoviedb.org/3/search/movie?&api_key=" + APIKey +"&query=";
 
-const mainSection = document.getElementById("main-section"); // selecting DOM element to work with
+const mainSection = document.getElementById("mainSection"); // selecting DOM element to work with
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-field");
 
