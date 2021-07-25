@@ -19,10 +19,12 @@ async function movies(url) {
 }
 
 function showMovies(movies) {
+  
+
   mainSection.innerHTML =""; // clearing page to show new reults
 
   movies.forEach((movie) => {
-    const {poster_path, title, vote_average} = movie; // Pulling necessary names from API
+    const {poster_path, title, vote_average, overview} = movie; // Pulling necessary names from API
 
     const movieBox = document.createElement("div"); //creating a div for individual movie elements
     movieBox.classList.add("movie"); // creating a class for it
@@ -30,15 +32,35 @@ function showMovies(movies) {
     movieBox.innerHTML = `
       <div class="movie-image"><img src="${IMGPath + poster_path}" alt="${title}" /></div>
       <div class="movie-info">
-        <h3>${title}</h3>
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          ${title}
+        </button>
         <span class="${classByRating(vote_average)}">${vote_average}</span>
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">${title}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ${overview}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     `; // creating markup for every movie element and pulling information from API
+
+    
 
     mainSection.appendChild(movieBox); // sending back to HTML file
   });
 }
-
 
 
 function classByRating(vote) { //checking how high is the movie rating and giving apropriate class name.
@@ -62,4 +84,5 @@ searchForm.addEventListener("submit", (i) => {
     searchInput.value = "";
   }
 })
+
 
