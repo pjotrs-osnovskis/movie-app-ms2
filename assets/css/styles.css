@@ -31,17 +31,17 @@ header button:focus{
   border: none;
 }
 
-.search-btn:focus {
+.general-btn:focus {
   outline: none;
 }
 
-.search-btn:active {
- background-color: #FF8F80;
+.general-btn:hover {
+ background-color: #fc7c6b;
 }
 
-.search-btn {
+.general-btn {
   font-size: 1.2rem;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 10px;
   color: #eee;
@@ -105,4 +105,14 @@ header button:focus{
 }
 .movie-info span.red {
   color: rgb(223, 45, 0);
+}
+
+/* Contact Form */
+
+#contact-section {
+  padding: 2rem 0;
+}
+
+#contact-section h3, h5, input, button {
+  margin: 1rem 0;
 }

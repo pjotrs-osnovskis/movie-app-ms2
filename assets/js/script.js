@@ -9,7 +9,7 @@ const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-field");
 
 
-movies(APIURL); // calling popular movies funcion to work 
+movies(APIURL); // calling popular movies function to work 
 
 async function movies(url) {
   const resp = await fetch(url);
@@ -21,24 +21,24 @@ async function movies(url) {
 function showMovies(movies) {
   
 
-  mainSection.innerHTML =""; // clearing page to show new reults
+  mainSection.innerHTML =""; // clearing page to show new results
 
   movies.forEach((movie) => {
-    const {poster_path, title, vote_average, overview} = movie; // Pulling necessary names from API
+    const {poster_path, title, vote_average, overview, release_date} = movie; // Pulling necessary names from API
 
     const movieBox = document.createElement("div"); //creating a div for individual movie elements
     movieBox.classList.add("movie"); // creating a class for it
 
-    movieBox.innerHTML = `
+    movieBox.innerHTML = ` <!-- Need to make sure text is in the middle when title is in three lines, rest of them is on top -->
       <div class="movie-image"><img src="${IMGPath + poster_path}" alt="${title}" /></div>
       <div class="movie-info">
-        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          ${title}
-        </button>
+      <button type="button" class="btn modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><h5>${title}</h5></button>
         <span class="${classByRating(vote_average)}">${vote_average}</span>
-        
+      </div>
+
+      <div class ="description">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">${title}</h5>
@@ -48,7 +48,7 @@ function showMovies(movies) {
                 ${overview}
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                Release Date: ${release_date}
               </div>
             </div>
           </div>
@@ -86,3 +86,20 @@ searchForm.addEventListener("submit", (i) => {
 })
 
 
+function sendMail(contactForm) {
+  emailjs.init(EmailJSUserID); // Please see README.md file how to get own user id for it to work
+  emailjs.send("gmail", "temp_1", {
+      "from_name": contactForm.name.value,
+      "from_email": contactForm.emailaddress.value,
+      "project_request": contactForm.projectsummary.value
+  })
+  .then(
+      function(response) {
+          console.log("SUCCESS", response);
+      },
+      function(error) {
+          console.log("FAILED", error);
+      }
+  );
+  return false;  // To block from loading a new page
+}
