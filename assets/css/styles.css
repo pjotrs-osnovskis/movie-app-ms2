@@ -7,6 +7,16 @@
   font-family: 'Lato', serif; 
 }
 
+a {
+  text-decoration: none;
+  color: black;
+  cursor: default;
+}
+
+a:hover {
+  color: black;
+}
+
 /* Navigation */
 header {
   background-color: #D16BA5;
@@ -84,7 +94,11 @@ header button:focus{
 
 .movie-info h3 {
   margin: 0;
-  font-size: 1.21rem;
+  font-size: 1.25rem;
+}
+
+.movie-title {
+  font-size: 1.1rem;
 }
 
 .movie-info span {
@@ -115,4 +129,24 @@ header button:focus{
 
 .contact-form-el {
   margin: 1rem 0;
+}
+
+/* Modal styles */
+
+.modal {
+  color: black;
+}
+
+.modal-header {
+  background-color: #fc7c6b;
+}
+
+.modal-body p {
+  font-size: 1.1rem;
+}
+
+.movie-poster {
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 1rem;
 }

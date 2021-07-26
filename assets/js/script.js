@@ -8,7 +8,6 @@ const mainSection = document.getElementById("mainSection"); // selecting DOM ele
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-field");
 
-
 movies(APIURL); // calling popular movies function to work 
 
 async function movies(url) {
@@ -18,42 +17,52 @@ async function movies(url) {
   showMovies(respData.results);
 }
 
+
+
+
+
+
 function showMovies(movies) {
   
 
   mainSection.innerHTML =""; // clearing page to show new results
 
   movies.forEach((movie) => {
-    const {poster_path, title, vote_average, overview, release_date} = movie; // Pulling necessary names from API
+    const {poster_path, title, vote_average, overview, release_date, id, backdrop_path} = movie; // Pulling necessary names from API
 
     const movieBox = document.createElement("div"); //creating a div for individual movie elements
     movieBox.classList.add("movie"); // creating a class for it
 
-    movieBox.innerHTML = ` <!-- Need to make sure text is in the middle when title is in three lines, rest of them is on top -->
-      <div class="movie-image"><img src="${IMGPath + poster_path}" alt="${title}" /></div>
-      <div class="movie-info">
-      <button type="button" class="btn modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><h5>${title}</h5></button>
-        <span class="${classByRating(vote_average)}">${vote_average}</span>
-      </div>
+    movieBox.innerHTML = `
+    <div class="movie-image"><img src="${IMGPath + poster_path}" alt="${title}" /></div>
+    <div class="movie-info">
+      <a class="movie-title" data-bs-toggle="modal" data-bs-target="#modal_${id}">
+        ${title}
+      </a>
+      <span class="${classByRating(vote_average)}">${vote_average}</span>
+      
+      <div class="modal fade" id="modal_${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">${title}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="movie-poster"><img src="${IMGPath + backdrop_path}" alt="${title}" /></div>
+              <h5>Movie Description:</h5>
+              <p>${overview}</p>
+              <h5 class="release-date" id="date-${id}">Release Date: ${release_date}</h5>
+            </div>
 
-      <div class ="description">
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">${title}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                ${overview}
-              </div>
-              <div class="modal-footer">
-                Release Date: ${release_date}
-              </div>
+            <div class="modal-footer">
+              <button type="button" class="general-btn" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
     `; // creating markup for every movie element and pulling information from API
 
     
@@ -61,6 +70,7 @@ function showMovies(movies) {
     mainSection.appendChild(movieBox); // sending back to HTML file
   });
 }
+
 
 
 function classByRating(vote) { //checking how high is the movie rating and giving apropriate class name.
