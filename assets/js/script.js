@@ -25,7 +25,7 @@ async function movies(url) {
 function showMovies(movies) {
   
 
-  mainSection.innerHTML =""; // clearing page to show new results
+  mainSection.innerHTML = ""; // clearing page to show new results
 
   movies.forEach((movie) => {
     const {poster_path, title, vote_average, overview, release_date, id, backdrop_path} = movie; // Pulling necessary names from API
@@ -106,17 +106,23 @@ function sendMail(contactForm) {
   emailjs.init(EmailJSUserID); // Please see README.md file how to get own user id for it to work
   emailjs.send("gmail", "temp_1", {
       "from_name": contactForm.name.value,
-      "from_email": contactForm.emailaddress.value,
-      "project_request": contactForm.projectsummary.value
+      "from_email": contactForm.emailAddress.value,
+      "project_request": contactForm.projectSummary.value
   })
   .then(
       function(response) {
-          console.log("SUCCESS", response);
+        $("#thankYouModal").modal('show');
+        console.log("SUCCESS", response);
+
       },
       function(error) {
           console.log("FAILED", error);
       }
   );
   return false;  // To block from loading a new page
-}
 
+  
+}
+function formReset() {
+  document.getElementById("contactForm1").reset();
+}
