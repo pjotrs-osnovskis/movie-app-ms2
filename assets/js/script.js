@@ -52,7 +52,7 @@ function showMovies(movies) {
               <div class="movie-poster"><img src="${IMGPath + backdrop_path}" alt="${title}" /></div>
               <h5>Movie Description:</h5>
               <p>${overview}</p>
-              <h5 class="release-date" id="date-${id}">Release Date: ${release_date}</h5>
+              <h5 class="release-date" id="date-${id}">Release Date: ${dateToYear(release_date)}</h5>
             </div>
 
             <div class="modal-footer">
@@ -71,7 +71,13 @@ function showMovies(movies) {
   });
 }
 
-
+function dateToYear(date) { // Formatting date 
+  const setDate = new Date(date);
+  let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(setDate);
+  let mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(setDate);
+  let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(setDate);
+  return `${mo} ${da}, ${ye}`
+}
 
 function classByRating(vote) { //checking how high is the movie rating and giving apropriate class name.
   if(vote >= 8) {
@@ -113,3 +119,4 @@ function sendMail(contactForm) {
   );
   return false;  // To block from loading a new page
 }
+

@@ -22,11 +22,18 @@ https://stackoverflow.com/questions/68516552/how-to-specify-api-objects-in-boots
 
 * search won't work on contact.html
 
+* on success clear and say thank you on email
+
+more comments 
+
+reaDME
+
 
 ### What sources used
 
 EmailJS - followed CI course material
 
+set date format : https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
 
 
 
@@ -35,6 +42,6 @@ EmailJS - followed CI course material
 
 ### !!!!!
 
-This search returned some relevant vidoes https://www.youtube.com/results?search_query=html+parameters+javascript
+This search returned some relevant videos https://www.youtube.com/results?search_query=html+parameters+javascript
 And I watched this one and it should explain how to get the parameters from a URL https://www.youtube.com/watch?v=j3-LV3XxhVg&ab_channel=ProcureEminence
 You just need to then figure out how to apply the parameter value to your search box on index.html
