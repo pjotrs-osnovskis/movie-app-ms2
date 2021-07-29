@@ -68,7 +68,6 @@ header button:focus{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 10rem;
 }
 
 /* Movies Box styling */
@@ -131,6 +130,7 @@ header button:focus{
 #contact-section {
   padding: 2rem 0;
   max-width: 60%;
+  height: 66.7vh;
 }
 
 .contact-form-el {
@@ -164,10 +164,8 @@ footer {
   background-color: #FF8F80;
   margin-top: 2rem;
   padding: 1rem 0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
+
 
 footer ul {
   list-style: none;  
@@ -194,5 +192,11 @@ footer ul {
     padding: 1rem 0;
     max-width: 95%;
   }
+  footer {
+    position: unset;
+  }
+  
+  
+
 
 }
