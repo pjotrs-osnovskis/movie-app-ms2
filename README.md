@@ -1,5 +1,15 @@
 # Movies Info App
 
+# to do
+## more comments 
+
+## reaDME
+
+## add image resizing for performance improvement 
+https://stackoverflow.com/questions/14672746/how-to-compress-an-image-via-javascript-in-the-browser
+
+## investigate errors on contact.html
+
 ### Colour palette
 Used mycolour.space to create a pallet
 
@@ -20,13 +30,10 @@ for emails
 https://stackoverflow.com/questions/68516552/how-to-specify-api-objects-in-bootstrap-5-modal/68516705#68516705
 
 
-* search won't work on contact.html
 
-* on success clear and say thank you on email
+* on success clear and say thank you on email - done https://www.w3schools.com/jsref/met_form_reset.asp
 
-more comments 
 
-reaDME
 
 
 ### What sources used
@@ -35,7 +42,7 @@ EmailJS - followed CI course material
 
 set date format : https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
 
-
+footer fixed https://stackoverflow.com/questions/19330611/fixed-footer-in-bootstrap
 
 ### Don't forget deployment
 

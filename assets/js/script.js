@@ -17,11 +17,6 @@ async function movies(url) {
   showMovies(respData.results);
 }
 
-
-
-
-
-
 function showMovies(movies) {
   
 
@@ -41,11 +36,11 @@ function showMovies(movies) {
       </a>
       <span class="${classByRating(vote_average)}">${vote_average}</span>
       
-      <div class="modal fade" id="modal_${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="modal_${id}" tabindex="-1" aria-labelledby="movieModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">${title}</h5>
+              <h5 class="modal-title" id="movieModal">${title}</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -79,7 +74,7 @@ function dateToYear(date) { // Formatting date
   return `${mo} ${da}, ${ye}`
 }
 
-function classByRating(vote) { //checking how high is the movie rating and giving apropriate class name.
+function classByRating(vote) { //checking how high is the movie rating and giving appropriate class name.
   if(vote >= 8) {
     return "green";
   } else if(vote >= 5) {
@@ -90,7 +85,7 @@ function classByRating(vote) { //checking how high is the movie rating and givin
 }
 
 
-searchForm.addEventListener("submit", (i) => {
+document.getElementById("search-form").addEventListener("submit", (i) => {
   i.preventDefault();
 
   const searchTerm = searchInput.value;

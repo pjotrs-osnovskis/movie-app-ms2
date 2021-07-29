@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 
 /* Main Styles */
@@ -10,17 +11,19 @@
 a {
   text-decoration: none;
   color: black;
-  cursor: pointer;
 }
 
 a:hover {
   color: black;
+  cursor: pointer;
+
 }
 
 /* Navigation */
 header {
   background-color: #D16BA5;
   padding: 1rem 0.5rem;
+  margin-bottom: 2rem;
 }
 
 header a {
@@ -31,8 +34,9 @@ header button:focus{
   outline: none;
 }
 
-#navbar-brand{
-  font-size: 1.7rem;
+#logo{
+  font-size: 3rem;
+  font-family: 'Lobster', serif;
 }
 
 #search-field {
@@ -64,6 +68,7 @@ header button:focus{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 10rem;
 }
 
 /* Movies Box styling */
@@ -139,7 +144,8 @@ header button:focus{
 }
 
 .modal-header {
-  background-color: #fc7c6b;
+  background-color: #D16BA5;
+  color: #eee;
 }
 
 .modal-body p {
@@ -150,4 +156,43 @@ header button:focus{
   border-radius: 5px;
   overflow: hidden;
   margin-bottom: 1rem;
+}
+
+/* footer */
+
+footer {
+  background-color: #FF8F80;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer ul {
+  list-style: none;  
+}
+
+.footer-left, .footer-center, .footer-right {
+  text-align: center;
+}
+
+.footer-center {
+  font-size: 1.3rem;
+  padding-top: 0.5rem;
+}
+
+.footer-right {
+  padding-top: 1rem;
+  font-size: 2rem;
+}
+
+/* media queries */
+
+@media only screen and (max-width: 600px) {
+  #contact-section {
+    padding: 1rem 0;
+    max-width: 95%;
+  }
+
 }
