@@ -34,8 +34,8 @@ header button:focus{
   outline: none;
 }
 
-#logo{
-  font-size: 3rem;
+#logo, #footer-logo{
+  font-size: 2.5rem;
   font-family: 'Lobster', serif;
 }
 
@@ -106,7 +106,7 @@ header button:focus{
 }
 
 .movie-info span {
-  background-color: #D16BA5;
+  background-color: #d16ba5bd;
   padding: 0.5rem;
   border-radius: 5px;
   width: 2.5rem;
@@ -116,10 +116,10 @@ header button:focus{
 }
 
 .movie-info span.green {
-  color: rgb(0, 214, 54);
+  color: rgb(121, 214, 0);
 }
 .movie-info span.amber {
-  color: rgb(255, 163, 87);
+  color: rgb(255, 217, 0);
 }
 .movie-info span.red {
   color: rgb(223, 45, 0);
@@ -130,7 +130,7 @@ header button:focus{
 #contact-section {
   padding: 2rem 0;
   max-width: 60%;
-  height: 66.7vh;
+  height: 68vh;
 }
 
 .contact-form-el {

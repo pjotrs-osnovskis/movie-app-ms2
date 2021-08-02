@@ -1,4 +1,8 @@
 // API link with key, please follow readme how to create own API key for application to work.
+const APIKey = "84f767ca64c6a454244f1189da5728db";
+const EmailJSUserID = "user_DoOnYBoOadoZVbGED61tp";
+const EmailJSAccessToken = "cfda4527438f42ac589a4a113c1eeb6d";
+
 
 const APIURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=" + APIKey + "&page-1";
 const IMGPath = "https://image.tmdb.org/t/p/w1280";
