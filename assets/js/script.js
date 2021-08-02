@@ -1,12 +1,10 @@
 // API link with key, please follow readme how to create own API key for application to work.
 const APIKey = "84f767ca64c6a454244f1189da5728db";
-const EmailJSUserID = "user_DoOnYBoOadoZVbGED61tp";
-const EmailJSAccessToken = "cfda4527438f42ac589a4a113c1eeb6d";
-
 
 const APIURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=" + APIKey + "&page-1";
-const IMGPath = "https://image.tmdb.org/t/p/w1280";
-const SearchAPI = "https://api.themoviedb.org/3/search/movie?&api_key=" + APIKey +"&query=";
+const IMGPath = "https://image.tmdb.org/t/p/w342";
+const backDropImgPath = "http://image.tmdb.org/t/p/w780/"
+const searchAPI = "https://api.themoviedb.org/3/search/movie?&api_key=" + APIKey +"&query=";
 
 const mainSection = document.getElementById("mainSection"); // selecting DOM element to work with
 const searchForm = document.getElementById("search-form");
@@ -14,7 +12,7 @@ const searchInput = document.getElementById("search-field");
 
 movies(APIURL); // calling popular movies function to work 
 
-async function movies(url) {
+async function movies(url) { 
   const resp = await fetch(url);
   const respData = await resp.json();
 
@@ -47,7 +45,7 @@ function showMovies(movies) {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <div class="movie-poster"><img src="${IMGPath + backdrop_path}" alt="${title}" /></div>
+              <div class="movie-poster"><img src="${backDropImgPath + backdrop_path}" alt="${title}" /></div>
               <h5>Movie Description:</h5>
               <p>${overview}</p>
               <h5 class="release-date" id="date-${id}">Release Date: ${dateToYear(release_date)}</h5>
@@ -90,32 +88,9 @@ document.getElementById("search-form").addEventListener("submit", (i) => {
   const searchTerm = searchInput.value;
 
   if(searchTerm) {
-    movies(SearchAPI + searchTerm)
+    movies(searchAPI + searchTerm)
     searchInput.value = "";
   }
 })
 
-function sendMail(contactForm) {
-  emailjs.init(EmailJSUserID); // Please see README.md file how to get own user id for it to work
-  emailjs.send("gmail", "temp_1", {
-      "from_name": contactForm.name.value,
-      "from_email": contactForm.emailAddress.value,
-      "project_request": contactForm.projectSummary.value
-  })
-  .then(
-      function(response) {
-        $("#thankYouModal").modal('show');
-        console.log("SUCCESS", response);
-      },
-      function(error) {
-        $("#errorModal").modal('show');
-        console.log("FAILED", error);
-      }
-  );
-  return false;  // To block from loading a new page
 
-}
-
-function formReset() {
-  document.getElementById("contactForm1").reset();
-}

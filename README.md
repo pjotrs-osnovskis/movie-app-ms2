@@ -130,14 +130,15 @@ Used [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introductio
 
 ### Implemented Features
   * Web application contains 2 pages and each page has a modal. Home has modal with movie description and Contact Us page has 2 modals for successful submission and error.
-  * Created by using HTML, CSS and Javascript, as well ad Bootstrap 5 and jQuery 3.6 frameworks, as well as [EmailJS](https://www.emailjs.com/) for contact form to work and [TMDB](https://www.themoviedb.org/) for movie API. Added Google Fonts and FontAwesome for projects fonts and icons.
-  * Application is taking Poster image, Title, Score, Description, Release Date and Second poster from API.
+  * Created by using HTML, CSS and Javascript, as well as Bootstrap 5 and jQuery 3.6 frameworks in addition with [EmailJS](https://www.emailjs.com/) for contact form to work and [TMDB](https://www.themoviedb.org/) for movie API. Added Google Fonts and FontAwesome for projects fonts and icons.
+  * Application is taking Poster image, Title, Rating, Description, Release Date and Second poster from API.
 
 ### Potential Features to Add
   * Trailers for movie preview modal.
   * Where to watch based on movie theaters around customers location.
   * If movie is out and not in theater - Buy/Rent or Watch Now option.
   * Login option, for customers convenience as well as track of bought/rented movies, generating recommendations based on previous movie experience.
+  * Writing reviews and comments on movies.
 
 ## Technologies Used
 
@@ -165,14 +166,14 @@ Used [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introductio
 
 
 ### Tools Used
-+ [Git](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) - Version control
-+ [GitHub](https://github.com/) - Repository and deployment
++ [Git](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) - Local Repository/Version Control
++ [GitHub](https://github.com/) - Remote repository and deployment
 + [VSCode](https://code.visualstudio.com/) - IDE
 + [HTML Validator](https://validator.w3.org/) - HTML Testing
 + [CSS Validator](https://jigsaw.w3.org/css-validator/) - CSS Testing
 + [Am I Responsive](http://ami.responsivedesign.is/) - Responsive Webpage Presentation
 + [Balsamiq](https://balsamiq.com/wireframes/) - Creating wireframes
-+ [MS Paint](https://support.microsoft.com/en-us/windows/get-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9) - Cutting out Wireframes
++ [MS Paint](https://support.microsoft.com/en-us/windows/get-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9) - Cutting out wireframes and screenshots
 + [PowerMapper](https://www.powermapper.com/) - Browser compatibility checks
 + [ColorSpace](https://mycolor.space/) - Palette generator
 
@@ -197,8 +198,9 @@ oter -->↩↩<footer>↩  <di
 ```
 ![HTML ERRORS](assets/img/html-errors.png)
 
-Type warnings - not sure, as in any documentation they are present - removed as advised.
-Duplicate "logo" - changed footer logo id - fixed.
+> Type warnings - not sure, as in any documentation they are present - removed as advised.
+
+> Duplicate "logo" - changed footer logo id - fixed.
 
 **Other errors/warnings:**
 
@@ -216,7 +218,7 @@ After finding errors in index.html, I fixed them in contact.html also, then made
 
 ### Lighthouse Reports
 
-Reports generated on local server due to API usage.
+Reports generated on [deployed project](https://sscip.github.io/movie-app-ms2/index.html):
 
 * [index.html](index.html)
 
@@ -228,7 +230,18 @@ Reports generated on local server due to API usage.
 | SEO             | 83 | 90 |
 
 
-> Test showed long loading time on images, I tried to figure out some solutions to rescale image on loading to improve web app's loading speed, but due to lack of experience and time couldn't implement it at this time. Shows contrast ratio on movie ratings, tried to fix that, made numbers brighter and added transparency to background, to keep the color, bu still error persists. Added keywords and description to index.html and contact.html.
+> Test showed long loading time on images, I tried to figure out some solutions to rescale image on loading to improve web app's loading speed, but due to lack of experience and time couldn't implement it at this time. Shows contrast ratio on movie ratings, tried to fix that, made numbers brighter and added transparency to background, to keep the color, but still error persists. Added keywords and description to index.html and contact.html.
+
+> After a Mentor meeting we did some de bugging. Figured that API has different sizes of images, so we used a smaller image size and it has improved loading times a little.
+
+| Test | Mobile | Desktop |
+| :-- | :--: | :--: |
+| Performance     | 78 | 90 |
+| Accessibility   | 83 | 84 |
+| Best Practices  | 93 | 100 |
+| SEO             | 92 | 90 |
+
+
 
 * [contact.html](contact.html)
 
@@ -249,7 +262,7 @@ During the development I mainly used Google Chrome on Windows 10 and Android Pla
 
 ### Functionality Test
 
-Made sure all links are in working order by clicking on each and one of them on every page, no broken links found.
+Made sure all links are in working order by clicking on each and one of them on every page, no broken links found. As well as **Search** working properly on variety of requests.
 
 ### User Story Testing
 
@@ -266,23 +279,27 @@ Made sure all links are in working order by clicking on each and one of them on 
 
 ## Other Fixes/Issues/Solutions
 
-In this section You can find comments on issues and problems I have faced and solutions I found during the production of this project.
+In this section You can find comments on issues and problems I have faced and solutions I found during the development of this project.
 
 1. I was thinking to hide API keys, but as far as I understood I can't do it without backend. So thought to use this [solution](https://gist.github.com/derzorngottes/3b57edc1f996dddcab25). But it will create a lot of inconvenience for testing and deployment, so decided to publish API keys for this project.
 
 2. [index.html](index.html) errors:
 ![index.html error](assets/img/index-errors.png)
 
-    Was looking for a solution for this and found this [documentation](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat). By the look of it all formatting is fine. 
+    Was looking for a solution for this and found this [documentation](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat). By the look of it, all formatting is fine. 
 
     I used this for release date formatting and main solution was taken from [here](https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date).
+
+    Now it's gone, might've had error in date format in API. 
 
 3. [contact.html](contact.html) errors:
 ![contact.html errors](assets/img/contact-errors.png)
 
     By the look of it is trying to run showMovies() function on this page too, I tried to investigate and spent over 2 hours looking for a solution. but no luck. Will check with Mentor on this in last meeting with him.
 
-4. Poster image sizing - web app is pulling images from API at high quality, I was trying to implement [this code](https://stackoverflow.com/questions/14672746/how-to-compress-an-image-via-javascript-in-the-browser), but did not succeed, thats why loading speeds on mobile devices are slow.
+    Fixed, Mentor offered to separate js files one for movies one for emails. No more errors are shown.
+
+4. Poster image sizing - web app is pulling images from API at high quality, I was trying to implement [this code](https://stackoverflow.com/questions/14672746/how-to-compress-an-image-via-javascript-in-the-browser), but did not succeed, thats why loading speeds on mobile devices are slow. As mentioned before, used smaller image sizes for faster loading speeds.
 
 5. I noticed, when on desktop, for movies with long titles (when it takes 3 lines), it is stretching movie title section for whole row and shorter titles are not vertically aligned in the middle. I tried fixing it with `vertical-align: middle`, `margin: auto 0`, searched though web for a solution but could not find any. Tried to put it in the separate `div` but still no luck.
 
@@ -290,7 +307,7 @@ In this section You can find comments on issues and problems I have faced and so
 
 7. On [contact.html](contact.html) page, after form submission I wanted it to show a little modal to say "Thank you" and clear the form. Solution was found [here](https://www.w3schools.com/jsref/met_form_reset.asp)
 
-8. Search on [contact.html](contact.html) - I wanted it to redirect to home page with relevant search results. I tried to find advise on Slack and guys offered me [this](https://www.youtube.com/results?search_query=html+parameters+javascript) search and [this](https://www.youtube.com/watch?v=j3-LV3XxhVg&ab_channel=ProcureEminence) video. After few tries I had a session with Mentor, and we decided that search on Contact Us page is not necessary and decided to remove it.
+8. Search on [contact.html](contact.html) - I wanted it to redirect to home page with relevant search results. I tried to find advise on Slack and guys offered me [this](https://www.youtube.com/results?search_query=html+parameters+javascript) search and [this](https://www.youtube.com/watch?v=j3-LV3XxhVg&ab_channel=ProcureEminence) video. After few tries I had a session with Mentor and we decided that search on Contact Us page is not necessary and decided to remove it.
 
 ## Version Control
  I used [Git](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) as a local repo and [GitHub](https://github.com/) as a remote one. 
@@ -326,7 +343,7 @@ In this section You can find comments on issues and problems I have faced and so
   All media is taken from API, as I understood from terms and conditions, it is free to use for practice and study purposes.
 
 ### Content
-  Movie titles, rating and description is taken from API pulling it for each individual object.
+  Movie titles, rating and description is taken from API, it is pulling it for each individual object.
 
 ## Contributors
 
@@ -335,16 +352,6 @@ In this section You can find comments on issues and problems I have faced and so
 ## Acknowledgements
 
 I would like to thank my mentor Spenser Barriball for support and help during this project. Also huge "Thank You!" to Code Institute and CyC Slack community for support and all tutours who worked hard on the study material that got me to this point, as well as Assessors who will assess this project, of course.
-
-
-
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-# to do
-## more comments 
 
 
 
