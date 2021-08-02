@@ -22,6 +22,8 @@
   <script src="assets/js/script.js" type="text/javascript" defer></script>
   <!-- EmailJS -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/favicon.png"/>
 </head>
 <body>
   <!-- Navigation -->
@@ -61,11 +63,11 @@
                 <div class="form-row text-center">
                   <div class="col">
                     <!-- Button trigger modal -->
-                    <button type="submit" class="general-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="submit" class="general-btn">
                       Send
                     </button>
-                    <!-- Modal -->
-                      <div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="contactModal" aria-hidden="true">
+                    <!-- Thank you Modal -->
+                    <div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="contactModal" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -81,6 +83,24 @@
                         </div>
                       </div>
                     </div>
+                    <!-- Thank you Modal -->
+                    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="contactModal" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="contactModal">Error!</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="formReset();" ></button>
+                          </div>
+                          <div class="modal-body" >
+                            <p>Something went wrong, please try again!</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="general-btn" data-bs-dismiss="modal" onclick="formReset();">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
                   </div>
                 </div>
               </form>

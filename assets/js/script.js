@@ -18,7 +18,6 @@ async function movies(url) {
 }
 
 function showMovies(movies) {
-  
 
   mainSection.innerHTML = ""; // clearing page to show new results
 
@@ -29,7 +28,7 @@ function showMovies(movies) {
     movieBox.classList.add("movie"); // creating a class for it
 
     movieBox.innerHTML = `
-    <div class="movie-image"><img src="${IMGPath + poster_path}" alt="${title}" /></div>
+    <div class="movie-image"><img id="movieImage" src="${IMGPath + poster_path}" alt="${title}" /></div>
     <div class="movie-info">
       <a class="movie-title" data-bs-toggle="modal" data-bs-target="#modal_${id}">
         ${title}
@@ -49,7 +48,6 @@ function showMovies(movies) {
               <p>${overview}</p>
               <h5 class="release-date" id="date-${id}">Release Date: ${dateToYear(release_date)}</h5>
             </div>
-
             <div class="modal-footer">
               <button type="button" class="general-btn" data-bs-dismiss="modal">Close</button>
             </div>
@@ -59,8 +57,6 @@ function showMovies(movies) {
     </div>
 
     `; // creating markup for every movie element and pulling information from API
-
-    
 
     mainSection.appendChild(movieBox); // sending back to HTML file
   });
@@ -84,7 +80,6 @@ function classByRating(vote) { //checking how high is the movie rating and givin
   }
 }
 
-
 document.getElementById("search-form").addEventListener("submit", (i) => {
   i.preventDefault();
 
@@ -95,7 +90,6 @@ document.getElementById("search-form").addEventListener("submit", (i) => {
     searchInput.value = "";
   }
 })
-
 
 function sendMail(contactForm) {
   emailjs.init(EmailJSUserID); // Please see README.md file how to get own user id for it to work
@@ -108,16 +102,16 @@ function sendMail(contactForm) {
       function(response) {
         $("#thankYouModal").modal('show');
         console.log("SUCCESS", response);
-
       },
       function(error) {
-          console.log("FAILED", error);
+        $("#errorModal").modal('show');
+        console.log("FAILED", error);
       }
   );
   return false;  // To block from loading a new page
 
-  
 }
+
 function formReset() {
   document.getElementById("contactForm1").reset();
 }
