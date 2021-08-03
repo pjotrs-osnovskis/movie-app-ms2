@@ -232,7 +232,7 @@ Reports generated on [deployed project](https://sscip.github.io/movie-app-ms2/in
 
 > Test showed long loading time on images, I tried to figure out some solutions to rescale image on loading to improve web app's loading speed, but due to lack of experience and time couldn't implement it at this time. Shows contrast ratio on movie ratings, tried to fix that, made numbers brighter and added transparency to background, to keep the color, but still error persists. Added keywords and description to index.html and contact.html.
 
-> After a Mentor meeting we did some de bugging. Figured that API has different sizes of images, so we used a smaller image size and it has improved loading times a little.
+> After a Mentor meeting we did some debugging. Figured that API has different sizes of images, so we used a smaller image size and it has improved loading times a little. But it reduced modal poster as well so I added another variable for modal posters to upload a bigger image.
 
 | Test | Mobile | Desktop |
 | :-- | :--: | :--: |
@@ -240,7 +240,6 @@ Reports generated on [deployed project](https://sscip.github.io/movie-app-ms2/in
 | Accessibility   | 83 | 84 |
 | Best Practices  | 93 | 100 |
 | SEO             | 92 | 90 |
-
 
 
 * [contact.html](contact.html)
@@ -295,7 +294,7 @@ In this section You can find comments on issues and problems I have faced and so
 3. [contact.html](contact.html) errors:
 ![contact.html errors](assets/img/contact-errors.png)
 
-    By the look of it is trying to run showMovies() function on this page too, I tried to investigate and spent over 2 hours looking for a solution. but no luck. Will check with Mentor on this in last meeting with him.
+    By the look of it is trying to run movies() function on this page too, I tried to investigate and spent over 2 hours looking for a solution, but no luck.
 
     Fixed, Mentor offered to separate js files one for movies one for emails. No more errors are shown.
 
@@ -351,7 +350,7 @@ In this section You can find comments on issues and problems I have faced and so
 
 ## Acknowledgements
 
-I would like to thank my mentor Spenser Barriball for support and help during this project. Also huge "Thank You!" to Code Institute and CyC Slack community for support and all tutours who worked hard on the study material that got me to this point, as well as Assessors who will assess this project, of course.
+I would like to thank my mentor Spencer Barriball for support and help during this project. Also huge "Thank You!" to Code Institute and CyC Slack community for support and all tutours who worked hard on the study material that got me to this point, as well as Assessors who will assess this project, of course.
 
 
 

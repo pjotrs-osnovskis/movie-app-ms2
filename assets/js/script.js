@@ -2,7 +2,7 @@
 const APIKey = "84f767ca64c6a454244f1189da5728db";
 
 const APIURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=" + APIKey + "&page-1";
-const IMGPath = "https://image.tmdb.org/t/p/w342";
+const IMGPath = "https://image.tmdb.org/t/p/w342"; 
 const backDropImgPath = "http://image.tmdb.org/t/p/w780/"
 const searchAPI = "https://api.themoviedb.org/3/search/movie?&api_key=" + APIKey +"&query=";
 
@@ -82,7 +82,7 @@ function classByRating(vote) { //checking how high is the movie rating and givin
   }
 }
 
-document.getElementById("search-form").addEventListener("submit", (i) => {
+document.getElementById("search-form").addEventListener("submit", (i) => { // movie search function
   i.preventDefault();
 
   const searchTerm = searchInput.value;
